@@ -67,7 +67,7 @@ def generate_shopier_form(data):
     </body></html>
     """
 
-
+@csrf_exempt
 def shopier_payment_post(request):
     if request.method == "POST":
         data = {
@@ -126,5 +126,6 @@ def shopier_callback(request):
 
         except Exception as e:
             return HttpResponse(f"Hata: {str(e)}", status=500)
+
 
     return HttpResponse("Sadece POST destekleniyor", status=405)
